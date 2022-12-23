@@ -8,7 +8,12 @@ const NavbarWrapper = styled.div`
   .left {
     padding: 0.5em;
     width: 30%;
-    background-color: pink;
+    .logo {
+      height: 2em;
+      margin-left: 1em;
+      margin-top: 0.5em;
+      cursor: pointer;
+    }
   }
   .center {
     padding: 0.5em;
@@ -17,7 +22,29 @@ const NavbarWrapper = styled.div`
   .right {
     padding: 0.5em;
     width: 40%;
-    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .log-btn {
+      border-radius: 20px;
+      margin-left: 2%;
+      height: 2.5em;
+      width: 10em;
+    }
+    .sign-btn {
+      border-radius: 20px;
+      margin-left: 2%;
+      color: #fff;
+      height: 2.5em;
+      width: 10em;
+    }
+    .btn {
+      border-radius: 20px;
+      margin-left: 5%;
+      margin-right: 2%;
+      height: 2.75em;
+      color: #7c7c7c;
+    }
   }
 `;
 
