@@ -13,10 +13,11 @@ function r() {
   }, []);
   const MOCK_DATA = {
     name: "sunraybee",
+    sub_id: "sunraybee",
     id: "asdadasda",
     img_url: "https://avatars.dicebear.com/api/adventurer/123.svg",
     banner_url:
-      "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.I_IqutLMvi9OO25NuKsG3wHaEK%26pid%3DApi&f=1&ipt=73691811e1eebb07b75608eaf9edcf0caeebdfba31775163d6cc0e5d0cb42714&ipo=images",
+      "https://styles.redditmedia.com/t5_zioft/styles/bannerBackgroundImage_j97c6sqyktr21.jpg?width=4000&format=pjpg&s=8a73fafdbf80185d6b4de57897feb1169a7eb210",
     about_community: "xyz",
     posts: [
       {
@@ -45,7 +46,12 @@ function r() {
   return (
     <SubredditWrapper>
       <Navbar name={MOCK_DATA.name} img_url={MOCK_DATA.img_url} />
-      <Banner banner_url={MOCK_DATA.banner_url} />
+      <Banner
+        banner_url={MOCK_DATA.banner_url}
+        title={MOCK_DATA.name}
+        sub_id={MOCK_DATA.sub_id}
+        pfp={MOCK_DATA.img_url}
+      />
       <CreatePost />
       <Sortbar />
       <About />
