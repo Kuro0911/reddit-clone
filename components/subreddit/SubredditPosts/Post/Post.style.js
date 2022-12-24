@@ -13,7 +13,8 @@ export const PostWrap = styled.div`
     align-items: center;
     height: 100%
     width: 5%;
-    margin-top: 0.4em;
+    border-radius: 5px 0px 0px 5px;
+    background-color: #d7d8d9;
     .number{
     font-size: 12px;
     font-weight: 700;

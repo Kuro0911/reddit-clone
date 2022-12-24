@@ -16,7 +16,6 @@ const SubredditWrapper = styled.div`
     margin-right: 2em;
   }
   .center-right {
-    background-color: pink;
     width: 20%;
   }
 `;
