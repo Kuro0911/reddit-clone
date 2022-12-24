@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Reddit from "../../components/home/reddit";
+import Reddit from "../../../components/home/reddit";
 
 function r() {
   useEffect(() => {
