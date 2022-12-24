@@ -52,10 +52,16 @@ function r() {
         sub_id={MOCK_DATA.sub_id}
         pfp={MOCK_DATA.img_url}
       />
-      <CreatePost />
-      <Sortbar />
-      <About />
-      <SubredditPosts posts={MOCK_DATA.posts} />
+      <div className="wrap">
+        <div className="center-left">
+          <CreatePost pfp={MOCK_DATA.img_url} id={MOCK_DATA.id} />
+          <Sortbar />
+          <SubredditPosts posts={MOCK_DATA.posts} />
+        </div>
+        <div className="center-right">
+          <About />
+        </div>
+      </div>
     </SubredditWrapper>
   );
 }

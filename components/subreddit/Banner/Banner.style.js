@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const BannerWrap = styled.div`
   width: 100%;
-  height: 35vh;
+  height: 30vh;
   background-color: white;
   h1 {
     font-weight: 500;
@@ -10,16 +10,19 @@ export const BannerWrap = styled.div`
 `;
 const ImageWrap = styled.div`
   img {
+    height: 20vh;
     width: 100%;
-    height: 30vh;
     object-fit: cover;
   }
 `;
 const TextWrap = styled.div`
   width: 100%;
   display: flex;
-  margin-left: 30%;
-  margin-top: -1.8em;
+  background-color: white;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+
   img {
     width: 95%;
     object-fit: contain;
@@ -41,7 +44,7 @@ const TextWrap = styled.div`
     background-color: #fff;
     border-radius: 100%;
     margin-right: 2.2em;
-    margin-left: -9em;
+    margin-left: -30%;
     margin-top: -1%;
   }
   span {
