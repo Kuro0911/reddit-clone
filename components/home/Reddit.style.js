@@ -1,5 +1,5 @@
 import styled from "styled-components";
-const SubredditWrapper = styled.div`
+const RedditWrapper = styled.div`
   background-color: #373c3f;
   .wrap {
     width: 100%;
@@ -20,4 +20,4 @@ const SubredditWrapper = styled.div`
   }
 `;
 
-export default SubredditWrapper;
+export default RedditWrapper;

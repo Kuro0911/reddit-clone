@@ -4,6 +4,19 @@ const AboutWrap = styled.div`
   background-color: white;
   height: fit-content;
   padding-bottom: 1em;
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .btn {
+      border-radius: 20px;
+      width: 15em;
+      margin-left: 4%;
+      height: 2.1em;
+      margin-top: 1em;
+    }
+  }
 `;
 const TopWrap = styled.div`
   background-color: #ff4500;

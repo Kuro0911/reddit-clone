@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { PostWrap } from "./Post.style";
 import IconButton from "@mui/material/Button";
 import Button from "@mui/material/Button";
-
+import { useRouter } from "next/router";
 import ForwardOutlinedIcon from "@mui/icons-material/ForwardOutlined";
 import ForwardIcon from "@mui/icons-material/Forward";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
@@ -13,6 +13,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 export const Post = ({ details }) => {
   const [votes, setVotes] = useState(10);
   const [active, setActive] = useState("");
+  const { pathname } = useRouter();
   const handleClick = (flag) => {
     console.log(flag);
     if (flag === "up" && active !== "up") {
@@ -67,6 +68,11 @@ export const Post = ({ details }) => {
       <div className="body">
         <div className="posted-by">
           <span>
+            {pathname === "/" ? (
+              <a href={`/r/${details.sub_id}`}>r/{details.sub_id}</a>
+            ) : (
+              <></>
+            )}
             Posted by {details.posted} {details.date}
           </span>
         </div>

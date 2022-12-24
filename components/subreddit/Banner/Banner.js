@@ -4,7 +4,7 @@ import { BannerWrap, ImageWrap, TextWrap } from "./Banner.style";
 import { lineHeight } from "@mui/system";
 
 export const Banner = (props) => {
-  return (
+  return props.banner_url != undefined ? (
     <BannerWrap>
       <ImageWrap>
         <img src={props.banner_url} className="img" alt="" />
@@ -22,5 +22,7 @@ export const Banner = (props) => {
         </Button>
       </TextWrap>
     </BannerWrap>
+  ) : (
+    <></>
   );
 };

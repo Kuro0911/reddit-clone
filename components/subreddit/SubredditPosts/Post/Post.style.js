@@ -65,6 +65,15 @@ export const PostWrap = styled.div`
       line-height: 16px;
       color: #7c7c7c;
       margin-bottom: 1.2em;
+      a{
+        margin-right: 0.5em;
+        font-size: inherit;
+        font-weight: bold;
+        color: black;
+      }
+      a:hover{
+        text-decoration: underline;
+      }
     }
     .head{
       color : black;
