@@ -6,7 +6,7 @@ import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDown
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import Button from "@mui/material/Button";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
   return (
     <NavbarWrapper>
       <div className="left">
@@ -14,6 +14,9 @@ export const Navbar = () => {
           src="https://upload.wikimedia.org/wikipedia/commons/5/58/Reddit_logo_new.svg"
           className="logo"
           alt=""
+          onClick={() => {
+            props.open(true);
+          }}
         />
       </div>
       <div className="center">

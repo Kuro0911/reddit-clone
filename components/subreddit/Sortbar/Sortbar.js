@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { SortbarWrap } from "./Sortbar.style";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/Button";
-
+import { useRouter } from "next/router";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import NewReleasesOutlinedIcon from "@mui/icons-material/NewReleasesOutlined";
 import MovingOutlinedIcon from "@mui/icons-material/MovingOutlined";
@@ -11,9 +11,11 @@ import IndeterminateCheckBoxOutlinedIcon from "@mui/icons-material/Indeterminate
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 
 export const Sortbar = () => {
+  const router = useRouter();
   const [active, setActive] = useState(0);
-  const handleClick = (ind) => {
+  const handleClick = (ind, txt) => {
     setActive(ind);
+    router.push(`/${txt}`);
   };
   return (
     <SortbarWrap>
@@ -22,7 +24,7 @@ export const Sortbar = () => {
           variant="text"
           className={active === 0 ? "active-btn" : "btn"}
           startIcon={<LocalFireDepartmentIcon />}
-          onClick={() => handleClick(0)}
+          onClick={() => handleClick(0, "hot")}
         >
           <span>Hot</span>
         </Button>
@@ -30,7 +32,7 @@ export const Sortbar = () => {
           variant="text"
           className={active === 1 ? "active-btn" : "btn"}
           startIcon={<NewReleasesOutlinedIcon />}
-          onClick={() => handleClick(1)}
+          onClick={() => handleClick(1, "new")}
         >
           <span>New</span>
         </Button>
@@ -38,7 +40,7 @@ export const Sortbar = () => {
           variant="text"
           className={active === 2 ? "active-btn" : "btn"}
           startIcon={<MovingOutlinedIcon />}
-          onClick={() => handleClick(2)}
+          onClick={() => handleClick(2, "top")}
         >
           <span>Top</span>
         </Button>

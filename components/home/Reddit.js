@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { About } from "../subreddit/About/About";
 import { Banner } from "../subreddit/Banner/Banner";
 import { CreatePost } from "../subreddit/CreatePost/CreatePost";
@@ -6,14 +6,32 @@ import { Navbar } from "../subreddit/Navbar/Navbar";
 import { SubredditPosts } from "../subreddit/SubredditPosts/SubredditPosts";
 import { Sortbar } from "../subreddit/Sortbar/Sortbar";
 import SubredditWrapper from "./Reddit.style";
+import Drawer from "@mui/material/Drawer";
+import { Sidebar } from "../subreddit/Sidebar/Sidebar";
 
 function Reddit(props) {
   useEffect(() => {
     console.log("getData");
   }, []);
+  const [anchor, setAnchor] = useState(false);
+  const toggleDrawer = (anchor, open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+    setAnchor(open);
+  };
+  const handleOpen = (open) => {
+    setAnchor(!anchor);
+  };
   return (
     <SubredditWrapper>
-      <Navbar name={props.name} img_url={props.img_url} />
+      <Navbar name={props.name} img_url={props.img_url} open={handleOpen} />
+      <Drawer anchor="left" open={anchor} onClose={toggleDrawer(false)}>
+        <Sidebar />
+      </Drawer>
       <Banner
         banner_url={props.banner_url}
         title={props.name}

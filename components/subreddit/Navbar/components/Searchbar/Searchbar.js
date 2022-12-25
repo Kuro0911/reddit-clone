@@ -13,7 +13,7 @@ export const Searchbar = () => {
         <SearchIcon />
         <input
           type="text"
-          placeholder="Search Subreddit"
+          placeholder="Search..."
           value={query}
           className="no-outline"
           onChange={handleChange}
