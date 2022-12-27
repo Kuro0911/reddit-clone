@@ -11,7 +11,7 @@ import { Sidebar } from "../subreddit/Sidebar/Sidebar";
 
 function Reddit(props) {
   useEffect(() => {
-    console.log("getData");
+    console.log(props);
   }, []);
   const [anchor, setAnchor] = useState(false);
   const toggleDrawer = (anchor, open) => (event) => {
@@ -40,7 +40,7 @@ function Reddit(props) {
       />
       <div className="wrap">
         <div className="center-left">
-          <CreatePost pfp={props.img_url} id={props.id} />
+          <CreatePost pfp={props.img_url} id={props.sub_id} />
           <Sortbar />
           <SubredditPosts posts={props.posts} />
         </div>

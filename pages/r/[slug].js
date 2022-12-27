@@ -1,9 +1,19 @@
-import React, { useEffect } from "react";
-import Reddit from "../../../components/home/reddit";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import Reddit from "../../components/home/reddit";
+import { getSubreddit } from "../../data/Api";
 
-function r() {
+function r(props) {
+  const [subreddit, setSubreddit] = useState();
   useEffect(() => {
-    console.log("getData");
+    let sub_id = props.slug;
+    getSubreddit(sub_id)
+      .then((res) => {
+        setSubreddit(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
   const MOCK_DATA = {
     name: "sunraybee",
@@ -65,7 +75,14 @@ function r() {
       },
     ],
   };
-  return <Reddit {...MOCK_DATA} />;
+  return <Reddit {...subreddit} />;
 }
 
 export default r;
+export const getServerSideProps = async (context) => {
+  let { slug } = context.query;
+  if (!slug) {
+    slug = null;
+  }
+  return { props: { slug: slug } };
+};
