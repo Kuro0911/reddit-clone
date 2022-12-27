@@ -14,3 +14,8 @@ export const getSubreddit = (sub_id) => {
   const request = api.get(sub_id);
   return request;
 };
+export const addNewPost = (sub_id, post) => {
+  console.log(sub_id);
+  const request = api.post(sub_id, { ...post });
+  return request;
+};

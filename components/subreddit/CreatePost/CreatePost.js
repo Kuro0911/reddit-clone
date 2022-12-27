@@ -9,7 +9,7 @@ export const CreatePost = (props) => {
       <div className="avtar">
         <img src={props.pfp} className="img" alt="no" />
       </div>
-      <a className="create-post" href={`/${props.id}/submit`}>
+      <a className="create-post" href={`/r/${props.id}/submit`}>
         <input placeholder="Post" />
       </a>
       <div className="icons">
