@@ -8,6 +8,7 @@ import { Sortbar } from "../subreddit/Sortbar/Sortbar";
 import SubredditWrapper from "./Reddit.style";
 import Drawer from "@mui/material/Drawer";
 import { Sidebar } from "../subreddit/Sidebar/Sidebar";
+import { PostDetails } from "../subreddit/SubredditPosts/PostDetails/PostDetails";
 
 function Reddit(props) {
   useEffect(() => {
@@ -40,9 +41,15 @@ function Reddit(props) {
       />
       <div className="wrap">
         <div className="center-left">
-          <CreatePost pfp={props.img_url} id={props.sub_id} />
-          <Sortbar />
-          <SubredditPosts posts={props.posts} />
+          {props.isOne === true ? (
+            <PostDetails details={props.post} />
+          ) : (
+            <>
+              <CreatePost pfp={props.img_url} id={props.sub_id} />
+              <Sortbar />
+              <SubredditPosts posts={props.posts} />
+            </>
+          )}
         </div>
         <div className="center-right">
           <About

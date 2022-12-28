@@ -74,7 +74,7 @@ export const Post = ({ details }) => {
             ) : (
               <></>
             )}
-            Posted by {details.posted} {details.date}
+            Posted by u/{details.postedBy} {details.date}
           </span>
         </div>
         <Link href={`/r/${details.sub_id}/post/${details._id}`}>

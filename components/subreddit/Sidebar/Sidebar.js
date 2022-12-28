@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SidebarWrap } from "./Sidebar.style";
 import Button from "@mui/material/Button";
 import Link from "next/link";
@@ -14,6 +14,7 @@ import DonutSmallIcon from "@mui/icons-material/DonutSmall";
 import AddIcon from "@mui/icons-material/Add";
 import Brightness7OutlinedIcon from "@mui/icons-material/Brightness7Outlined";
 import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
+import { getAllSubreddit } from "../../../data/Api";
 
 export const Sidebar = () => {
   const data = [
@@ -25,6 +26,17 @@ export const Sidebar = () => {
     "Crypto",
     "More Topics",
   ];
+  const [subreddits, setSubreddits] = useState([]);
+  useEffect(() => {
+    getAllSubreddit()
+      .then((res) => {
+        setSubreddits(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  console.log(subreddits);
   return (
     <SidebarWrap>
       <div className="top">
@@ -52,11 +64,14 @@ export const Sidebar = () => {
       <div className="mid">
         <span className="head">RECENT COMMUNITY</span>
         <div className="recent">
-          <div className="left">
-            <Brightness7OutlinedIcon className="ico" />
-            <span>r/sveltejs</span>
-          </div>
-          <StarBorderOutlinedIcon className="ico" />
+          {subreddits.map((ele, key) => (
+            <Link href={`/r/${ele.sub_id}`}>
+              <div className="left">
+                <Brightness7OutlinedIcon className="ico" />
+                <span>r/{ele.sub_id}</span>
+              </div>
+            </Link>
+          ))}
         </div>
 
         <Button variant="text" className="btn" startIcon={<AddIcon />}>

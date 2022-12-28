@@ -17,6 +17,7 @@ export default function AddPost(props) {
     sub_id: props.sub_id,
     data: "",
   });
+  console.log(props);
   const [open, setOpen] = useState(false);
   const [severity, setSeverity] = useState("success");
   const handleChangeTitle = (e) => {
@@ -77,11 +78,7 @@ export default function AddPost(props) {
       <About />
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity={severity} sx={{ width: "100%" }}>
-          {severity === "success" ?  
-          "Post Added!"
-          : 
-          "Could not Add the Post"
-          }
+          {severity === "success" ? "Post Added!" : "Could not Add the Post"}
         </Alert>
       </Snackbar>
     </AddPostWrapper>

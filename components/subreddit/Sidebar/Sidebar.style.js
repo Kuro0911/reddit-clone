@@ -47,8 +47,8 @@ export const SidebarWrap = styled.div`
     .recent {
       width: 100%;
       display: flex;
+      flex-direction: column;
       color: #7c7c7c;
-      align-items: center;
       margin-bottom: 0.65em;
       justify-content: space-between;
       .ico {
@@ -57,13 +57,15 @@ export const SidebarWrap = styled.div`
       .left {
         display: flex;
         align-items: center;
+        margin-top: 1em;
         margin-left: 1em;
+        color: black;
+        span {
+          text-decoration: none;
+        }
         .ico {
           color: #ff3d00;
           margin-right: 0.25em;
-        }
-        span {
-          color: black;
         }
       }
     }

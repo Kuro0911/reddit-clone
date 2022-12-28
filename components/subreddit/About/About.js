@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   AboutWrap,
   CountWrap,
@@ -12,7 +12,7 @@ import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import CakeOutlinedIcon from "@mui/icons-material/CakeOutlined";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import Button from "@mui/material/Button";
-
+import Link from "next/link";
 export const About = (props) => {
   return (
     <AboutWrap>
@@ -55,9 +55,11 @@ export const About = (props) => {
         </>
       ) : (
         <div className="wrap">
-          <Button variant="contained" className="btn">
-            Create Community
-          </Button>
+          <Link href="/new">
+            <Button variant="contained" className="btn">
+              Create Community
+            </Button>
+          </Link>
           <Button variant="contained" className="btn">
             Create post
           </Button>
