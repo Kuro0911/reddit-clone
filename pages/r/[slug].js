@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Reddit from "../../components/home/reddit";
+import Reddit from "../../components/Reddit/reddit";
 import { getSubreddit } from "../../data/Api";
 
 function r(props) {

@@ -9,9 +9,10 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import RedeemIcon from "@mui/icons-material/Redeem";
 import ShareIcon from "@mui/icons-material/Share";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import Link from "next/link";
 
 export const Post = ({ details }) => {
-  const [votes, setVotes] = useState(10);
+  const [votes, setVotes] = useState(details.upVotes);
   const [active, setActive] = useState("");
   const { pathname } = useRouter();
   const handleClick = (flag) => {
@@ -76,9 +77,11 @@ export const Post = ({ details }) => {
             Posted by {details.posted} {details.date}
           </span>
         </div>
-        <div className="head">
-          <span>{details.heading}</span>
-        </div>
+        <Link href={`/r/${details.sub_id}/post/${details._id}`}>
+          <div className="head">
+            <span>{details.title}</span>
+          </div>
+        </Link>
         <div className="data">
           <p>{details.data}</p>
         </div>

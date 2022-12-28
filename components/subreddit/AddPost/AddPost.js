@@ -4,14 +4,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { About } from "../About/About";
 import Button from "@mui/material/Button";
 import { addNewPost } from "../../../data/Api";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 
 export default function AddPost(props) {
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
   const [post, setPost] = useState({
     title: "",
     postedBy: "dhananajai",
-    sub_id: "first",
+    sub_id: props.sub_id,
     data: "",
   });
+  const [open, setOpen] = useState(false);
+  const [severity, setSeverity] = useState("success");
   const handleChangeTitle = (e) => {
     setPost({ ...post, title: e.target.value });
   };
@@ -21,12 +28,22 @@ export default function AddPost(props) {
   const handlePost = () => {
     addNewPost(props.sub_id, post)
       .then((res) => {
-        console.log("success");
+        setSeverity("success");
+        setOpen(true);
       })
       .catch((err) => {
+        setOpen(true);
+        setSeverity("error");
         console.log(err);
       });
     console.log(post);
+  };
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
   };
   return (
     <AddPostWrapper>
@@ -58,6 +75,15 @@ export default function AddPost(props) {
         </div>
       </div>
       <About />
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity={severity} sx={{ width: "100%" }}>
+          {severity === "success" ?  
+          "Post Added!"
+          : 
+          "Could not Add the Post"
+          }
+        </Alert>
+      </Snackbar>
     </AddPostWrapper>
   );
 }

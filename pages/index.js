@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Reddit from "../components/home/reddit";
+import Reddit from "../components/Reddit/reddit";
 import { getHome } from "../data/Api";
 
 export default function Home() {

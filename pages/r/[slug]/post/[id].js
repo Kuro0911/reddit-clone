@@ -1,11 +1,10 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import AddPost from "../../../../components/subreddit/AddPost/AddPost";
-import { Navbar } from "../../../../components/subreddit/Navbar/Navbar";
 import Drawer from "@mui/material/Drawer";
+import { Navbar } from "../../../../components/subreddit/Navbar/Navbar";
 import { Sidebar } from "../../../../components/subreddit/Sidebar/Sidebar";
 
-export default function Submit() {
+export default function PostDetail() {
   const router = useRouter();
   const [anchor, setAnchor] = useState(false);
   const toggleDrawer = (anchor, open) => (event) => {
@@ -26,7 +25,6 @@ export default function Submit() {
       <Drawer anchor="left" open={anchor} onClose={toggleDrawer(false)}>
         <Sidebar />
       </Drawer>
-      <AddPost sub_id={router.query.slug} />
     </>
   );
 }

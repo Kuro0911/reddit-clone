@@ -1,7 +1,7 @@
 import React from "react";
 import { SidebarWrap } from "./Sidebar.style";
 import Button from "@mui/material/Button";
-
+import Link from "next/link";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -29,9 +29,15 @@ export const Sidebar = () => {
     <SidebarWrap>
       <div className="top">
         <span className="head">FEEDS</span>
-        <Button variant="text" className="btn" startIcon={<HomeOutlinedIcon />}>
-          <span>Home</span>
-        </Button>
+        <Link href="/">
+          <Button
+            variant="text"
+            className="btn"
+            startIcon={<HomeOutlinedIcon />}
+          >
+            <span>Home</span>
+          </Button>
+        </Link>
         <Button
           variant="text"
           className="btn"

@@ -3,6 +3,7 @@ const RedditWrapper = styled.div`
   background-color: #373c3f;
   .wrap {
     width: 100%;
+    height: 100%;
     display: flex;
     margin-top: 1em;
   }
